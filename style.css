@@ -1,0 +1,18 @@
+*{box-sizing:border-box;font-family:Segoe UI, Roboto, Arial, sans-serif}
+body,html,#app{height:100%;margin:0}
+#app{display:flex}
+#sidebar{width:220px;background:#2c3e50;color:#ecf0f1;padding:16px}
+#sidebar h2{margin:0 0 12px}
+#sidebar ul{list-style:none;padding:0}
+#sidebar li{padding:8px 10px;border-radius:4px;cursor:pointer}
+#sidebar li:hover,#sidebar li.active{background:#34495e}
+main{flex:1;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center}
+#content{margin-top:12px}
+.card{background:#fff;border:1px solid #ddd;padding:12px;border-radius:6px}
+form .row{display:flex;gap:8px;margin-bottom:8px}
+label{width:120px}
+input,select,textarea{flex:1;padding:6px;border:1px solid #ccc;border-radius:4px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px;border:1px solid #eee;text-align:left}
+@media(max-width:700px){#sidebar{display:none}main{padding:8px}}

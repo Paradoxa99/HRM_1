@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HRM - Vanilla JS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <h2>HRM</h2>
+      <nav>
+        <ul id="menu">
+          <li data-route="dashboard" class="active">Dashboard</li>
+          <li data-route="add">Thêm nhân viên</li>
+          <li data-route="edit">Sửa nhân viên</li>
+          <li data-route="delete">Xóa nhân viên</li>
+          <li data-route="search">Tìm kiếm</li>
+          <li data-route="departments">Phòng ban</li>
+          <li data-route="positions">Vị trí</li>
+          <li data-route="salary">Lương</li>
+          <li data-route="attendance">Chấm công</li>
+          <li data-route="leave">Nghỉ phép</li>
+          <li data-route="performance">Hiệu suất</li>
+          <li id="logout">Đăng xuất</li>
+        </ul>
+      </nav>
+    </aside>
+    <main id="main">
+      <header>
+        <h1 id="page-title">Dashboard</h1>
+        <div id="user-area"></div>
+      </header>
+      <section id="content">
+        <!-- Dynamic content inserted here -->
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
