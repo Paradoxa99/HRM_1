@@ -10,11 +10,11 @@ function init(){
   } else {
     // seed default 5 employees
     employees = [
-      {id:'e1',name:'Nguyen Van A',departmentId:'d1',positionId:'p1',salary:800,bonus:0,deduction:0,hireDate:'2022-01-15'},
-      {id:'e2',name:'Tran Thi B',departmentId:'d2',positionId:'p2',salary:900,bonus:0,deduction:0,hireDate:'2021-03-12'},
-      {id:'e3',name:'Le Van C',departmentId:'d1',positionId:'p3',salary:700,bonus:0,deduction:0,hireDate:'2020-07-01'},
-      {id:'e4',name:'Pham Thi D',departmentId:'d3',positionId:'p2',salary:950,bonus:0,deduction:0,hireDate:'2019-11-20'},
-      {id:'e5',name:'Hoang Van E',departmentId:'d2',positionId:'p1',salary:600,bonus:0,deduction:0,hireDate:'2023-05-05'}
+      {id:'e1',name:'Nguyen Van A',departmentId:'d1',positionId:'p1',salary:800,bonus:0,deduction:0,hireDate:'2022-01-15',status:'active'},
+      {id:'e2',name:'Tran Thi B',departmentId:'d2',positionId:'p2',salary:900,bonus:0,deduction:0,hireDate:'2021-03-12',status:'active'},
+      {id:'e3',name:'Le Van C',departmentId:'d1',positionId:'p3',salary:700,bonus:0,deduction:0,hireDate:'2020-07-01',status:'active'},
+      {id:'e4',name:'Pham Thi D',departmentId:'d3',positionId:'p2',salary:950,bonus:0,deduction:0,hireDate:'2019-11-20',status:'active'},
+      {id:'e5',name:'Hoang Van E',departmentId:'d2',positionId:'p1',salary:600,bonus:0,deduction:0,hireDate:'2023-05-05',status:'active'}
     ];
     localStorage.setItem(KEY, JSON.stringify(employees));
   }
@@ -34,7 +34,8 @@ function saveEmployees(arr){
 }
 
 function addEmployee(emp){
-  employees.push(emp);
+  const e = Object.assign({status:'active'}, emp);
+  employees.push(e);
   saveEmployees(employees);
 }
 
