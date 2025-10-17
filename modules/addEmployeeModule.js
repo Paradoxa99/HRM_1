@@ -41,12 +41,10 @@ function render(container){
       document.getElementById('add-result').innerText = 'Name is required';
       return;
     }
-    // Validate: unique name across departments (no duplicate employee name)
-    const all = EmployeeDb.getAllEmployees();
-    const duplicate = all.find(e=>e.name.toLowerCase()===name.toLowerCase());
-    if(duplicate){
-      document.getElementById('add-result').innerText = 'Employee name already exists';
-      return;
+    // Allow duplicate names; ensure generated id is unique
+    let newId = Utils.genId('emp');
+    while(EmployeeDb.getEmployeeById(newId)){
+      newId = Utils.genId('emp');
     }
     // Validate: salary positive and within position limits
     const pos = Position.getAllPositions().find(p=>p.id===position);
@@ -56,7 +54,7 @@ function render(container){
       document.getElementById('add-result').innerText = `Salary must be between ${minSalary} and ${maxSalary}`;
       return;
     }
-    const emp = {id: Utils.genId('emp'),name,departmentId:department,positionId:position,salary,bonus:0,deduction:0,hireDate};
+    const emp = {id: newId,name,departmentId:department,positionId:position,salary,bonus:0,deduction:0,hireDate};
     EmployeeDb.addEmployee(emp);
     document.getElementById('add-result').innerText = 'Added successfully';
     form.reset();

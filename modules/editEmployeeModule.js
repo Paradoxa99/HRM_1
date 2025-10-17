@@ -41,10 +41,7 @@ function render(container){
       const updates = {name:fd.get('name').trim(),departmentId:fd.get('department'),positionId:fd.get('position'),salary:Number(fd.get('salary')),hireDate:fd.get('hireDate')};
       // Validate name
       if(!updates.name){ alert('Name is required'); return; }
-      // Check duplicate name (allow same record)
-      const others = EmployeeDb.getAllEmployees().filter(e=>e.id!==found.id);
-      const dup = others.find(e=>e.name.toLowerCase()===updates.name.toLowerCase());
-      if(dup){ alert('Another employee with this name exists'); return; }
+  // Names may duplicate; only id must be unique (ids are immutable)
       // Validate salary limits based on selected position
       const pos = Position.getAllPositions().find(p=>p.id===updates.positionId);
       const minSalary = pos ? Number(pos.salaryBase || 0) : 0;
